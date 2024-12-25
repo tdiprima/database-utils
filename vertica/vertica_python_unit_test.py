@@ -1,4 +1,8 @@
 """
+Establishes a connection with the Vertica database using given credentials in a config file, cleans and initializes
+a specific table, inserts data, fetches and prints the data, and asserts that the data count is correct, handling any
+database and query related errors while providing debug logging.
+
 BASIC TESTS
 https://github.com/jbfavre/python-vertica/blob/master/vertica_python/tests/basic_tests.py
 """

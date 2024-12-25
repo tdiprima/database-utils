@@ -1,3 +1,5 @@
+# Connects to a MongoDB, accesses a specific database and collection, then retrieves and prints the first document
+# where the 'provenance.analysis.execution_id' field equals 'ardy360@gmail.com'.
 from pymongo import MongoClient
 
 if __name__ == '__main__':

@@ -1,3 +1,5 @@
+# Sets up a database connection using SQLAlchemy, creates a new session, and inserts a new person and corresponding
+# address into their respective tables.
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 

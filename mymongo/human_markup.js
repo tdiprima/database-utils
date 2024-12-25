@@ -1,3 +1,6 @@
+// Modifies each document in the tumor_annotations collection by reassigning the properties: imageid, study, and subject
+// of the image object inside the provenance object, by replacing the "VTRPDAC_Test_" substring in the case_id property
+// value with an empty string.
 // RUN LOCALLY
 db.tumor_annotations.find().forEach(function(data) {
     //print(data.provenance.image.case_id.replace("VTRPDAC_Test_", ""))

@@ -1,3 +1,5 @@
+# Creates a SQLite database with tables 'person' and 'address', populates them with sample data, selects and prints
+# all records from both tables, then drops the tables, and finally closes the database connection.
 import sqlite3
 
 

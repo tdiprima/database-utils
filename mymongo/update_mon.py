@@ -1,3 +1,5 @@
+# Reads image data from a CSV file, connects to a MongoDB database to query, print, check, rename specific fields on
+# data entries, or remove documents based on the image data, and use 'pathdbapi' and 'quipdb' libraries to handle image files.
 import datetime
 
 from pathdbapi import *

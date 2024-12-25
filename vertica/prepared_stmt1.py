@@ -1,3 +1,5 @@
+# Connects to a Vertica database, creates a table, inserts multiple records, makes select queries and finally
+# closes the connection. It also handles connection exceptions and ensures connection closure after execution.
 import json
 import logging
 

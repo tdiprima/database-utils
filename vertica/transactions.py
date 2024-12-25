@@ -1,3 +1,5 @@
+# Connects to a Vertica database, creates a table 'mytab' in the 'sbm_covid19_workspace' schema, inserts some data,
+# updates it, retrieves the results, and handles various exceptions, using a configuration file for connectivity settings.
 import json
 import logging
 

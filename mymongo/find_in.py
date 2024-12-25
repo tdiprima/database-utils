@@ -1,8 +1,6 @@
-#!/usr/bin/env python
-
 """
-A simple python script.
-
+Connects to a MongoDB database, retrieves documents from the 'analysis' collection that match certain criteria,
+and prints these documents.
 """
 
 import sys

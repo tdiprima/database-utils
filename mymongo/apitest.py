@@ -1,3 +1,5 @@
+# Contains tests for the pathdbapi library, particularly the functions get_auth_token and get_slide_unique_id,
+# including handling for certain exceptions and command line input.
 # TESTING PATHDB API (OLD!)
 from pathdbapi import *
 import sys

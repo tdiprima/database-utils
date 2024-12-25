@@ -1,3 +1,5 @@
+# Loads connection settings from a JSON file, connects to a Vertica database, drops a table if it exists,
+# creates a new table, and inserts predefined data into it, then commits the changes and closes the connection.
 import json
 import logging
 

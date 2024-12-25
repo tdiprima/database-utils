@@ -1,8 +1,6 @@
+# Connects to a Vertica database to perform and manage various operations, such as selection, insertion, deletion
+# and transaction with error handling on a particular table named 'sbm_covid19_workspace.Books'.
 # https://github.com/vertica/vertica-python
-"""
-The dreaded books example. The bane of my existence.
-But in the end, virtue prevailed!
-"""
 import logging
 import sys
 
