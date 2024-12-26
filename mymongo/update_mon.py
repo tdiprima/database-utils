@@ -1,17 +1,15 @@
 # Reads image data from a CSV file, connects to a MongoDB database to query, print, check, rename specific fields on
 # data entries, or remove documents based on the image data, and use 'pathdbapi' and 'quipdb' libraries to handle image files.
-import datetime
+# TODO: get_auth_token url, username, password
 
-from pathdbapi import *
-from quipdb import *
 import csv
 
+from quipdb import *
+
+from pathdbapi import *
+
 # Global vars
-img = {
-    "study": "",
-    "subject": "",
-    "image": ""
-}
+img = {"study": "", "subject": "", "image": ""}
 
 MARK = 'mark'
 ANALYSIS = 'analysis'
@@ -26,8 +24,8 @@ myclient = connect("ca-mongo", 27017)
 mydb = myclient["camic"]
 
 # Pathdb vars
-url = "http://quip-pathdb"
-token = get_auth_token(url, "admin", "bluecheese2018")
+url = "http://example"
+token = get_auth_token(url, "username", "password")
 
 
 def do_removal(mycol, myquery):
@@ -117,9 +115,7 @@ def do_thing(mycol, myquery):
                 q = {"_id": x['_id']}, {
                     "$set": {"provenance.data_loader": "quip_csv.py", "provenance.batch_id": "mybatch",
                              "tag_id": "mytag"}}
-                print(q)
-                # mycol.update_one({'x': 1}, {'$inc': {'x': 3}})
-                # mycol.update_one(q, upsert=False)
+                print(q)  # mycol.update_one({'x': 1}, {'$inc': {'x': 3}})  # mycol.update_one(q, upsert=False)
 
 
 def main():
@@ -146,8 +142,7 @@ def main():
                 # do_print(mydb[MARK], m_query)
                 # do_rename(mydb[ANALYSIS], a_query, execution_id + "_mark_backup")
                 # do_rename(mydb[MARK], m_query, execution_id + "_mark_backup")
-                do_thing(mydb[MARK], m_query)
-                # https://api.mongodb.com/python/current/api/pymongo/collection.html
+                do_thing(mydb[MARK], m_query)  # https://api.mongodb.com/python/current/api/pymongo/collection.html
 
 
 def do_removal1(mycol, myquery):

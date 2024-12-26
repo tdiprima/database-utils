@@ -20,8 +20,8 @@ connection = vertica_python.connect(**conn_info)
 # do things
 cur = connection.cursor()
 
-cur.execute("DROP TABLE IF EXISTS sbm_covid19_workspace.MyGuests;")
-cur.execute(""" CREATE TABLE sbm_covid19_workspace.MyGuests
+cur.execute("DROP TABLE IF EXISTS my_workspace.MyGuests;")
+cur.execute(""" CREATE TABLE my_workspace.MyGuests
 (
     firstname VARCHAR(30) NOT NULL,
     lastname  VARCHAR(30) NOT NULL,
@@ -29,11 +29,11 @@ cur.execute(""" CREATE TABLE sbm_covid19_workspace.MyGuests
 ); """)
 
 # prepare, set parameters, and execute
-cur.execute("INSERT INTO sbm_covid19_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
+cur.execute("INSERT INTO my_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
             ["John", "Doe", "john@example.com"])
-cur.execute("INSERT INTO sbm_covid19_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
+cur.execute("INSERT INTO my_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
             ["Mary", "Moe", "mary@example.com"])
-cur.execute("INSERT INTO sbm_covid19_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
+cur.execute("INSERT INTO my_workspace.MyGuests (firstname, lastname, email) VALUES (?, ?, ?)",
             ["Julie", "Dooley", "julie@example.com"])
 connection.commit()
 

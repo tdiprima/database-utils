@@ -1,4 +1,4 @@
-# Connects to a Vertica database, creates a table 'mytab' in the 'sbm_covid19_workspace' schema, inserts some data,
+# Connects to a Vertica database, creates a table 'mytab' in the 'my_workspace' schema, inserts some data,
 # updates it, retrieves the results, and handles various exceptions, using a configuration file for connectivity settings.
 import json
 import logging
@@ -19,9 +19,9 @@ def conn():
 
 def init_table(cur):
     # clean old table
-    cur.execute('DROP TABLE IF EXISTS sbm_covid19_workspace.mytab;')
+    cur.execute('DROP TABLE IF EXISTS my_workspace.mytab;')
     # create test table
-    cur.execute(""" CREATE TABLE sbm_covid19_workspace.mytab (
+    cur.execute(""" CREATE TABLE my_workspace.mytab (
     id INT NOT NULL,
     firstname VARCHAR(50) NOT NULL,
     lastname VARCHAR(50) NOT NULL);   
@@ -30,17 +30,17 @@ def init_table(cur):
 
 def insert(cur):
     """
-    I think the darn thing hangs when you use BEGIN and END or COMMIT.
+    I think it hangs when you use BEGIN and END or COMMIT.
     Do like the following:
     """
-    cur.execute("INSERT INTO sbm_covid19_workspace.mytab(id, firstname, lastname) VALUES (1, 'Britney', 'Spears');")
-    cur.execute("UPDATE sbm_covid19_workspace.mytab SET id = 'Spears' WHERE lastname = 'Spears';")
-    cur.execute("INSERT INTO sbm_covid19_workspace.mytab(id, firstname, lastname) VALUES (2, 'Zsa Zsa', 'Gabor');")
+    cur.execute("INSERT INTO my_workspace.mytab(id, firstname, lastname) VALUES (1, 'Britney', 'Spears');")
+    cur.execute("UPDATE my_workspace.mytab SET id = 'Spears' WHERE lastname = 'Spears';")
+    cur.execute("INSERT INTO my_workspace.mytab(id, firstname, lastname) VALUES (2, 'Zsa Zsa', 'Gabor');")
     con.commit()  # <-- DO LIKE THIS.
 
 
 def check_it(cur):
-    cur.execute("SELECT * FROM sbm_covid19_workspace.mytab;")
+    cur.execute("SELECT * FROM my_workspace.mytab;")
     res = cur.fetchall()
     print(res)
 

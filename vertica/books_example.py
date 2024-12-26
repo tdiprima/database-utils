@@ -1,5 +1,6 @@
 # Connects to a Vertica database to perform and manage various operations, such as selection, insertion, deletion
-# and transaction with error handling on a particular table named 'sbm_covid19_workspace.Books'.
+# and transaction with error handling on a particular table named 'my_workspace.Books'.
+# TODO: username, password, database
 # https://github.com/vertica/vertica-python
 import logging
 import sys
@@ -16,7 +17,7 @@ conn_info = {'host': 'vert',
 
 
 def select1():
-    cur.execute("SELECT * FROM sbm_covid19_workspace.Books")  # LIMIT 2")
+    cur.execute("SELECT * FROM my_workspace.Books")  # LIMIT 2")
     for row in cur.iterate():
         print(row)
 
@@ -74,7 +75,7 @@ def trans():
         print("finally")
 
 
-a_table = "sbm_covid19_workspace.Books"
+a_table = "my_workspace.Books"
 with vertica_python.connect(**conn_info) as connection:
     cur = connection.cursor()
     trans()
